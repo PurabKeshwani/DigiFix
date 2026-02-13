@@ -1,0 +1,24 @@
+<?xml version="1.0" encoding="utf-8"?>
+<vector xmlns:android="http://schemas.android.com/apk/res/android"
+    android:width="200dp"
+    android:height="200dp"
+    android:viewportWidth="200"
+    android:viewportHeight="200">
+
+    <!-- Quarter Circle Arc Stoke -->
+    <path
+        android:pathData="M200,100 A100,100 0 0,0 100,200"
+        android:strokeColor="#1AFFFFFF"
+        android:strokeWidth="2"
+        android:strokeLineCap="round"
+        android:fillColor="#00000000" />
+
+    <!-- Outer Glow/Stroke (Optional subtle detail) -->
+    <path
+        android:pathData="M200,90 A110,110 0 0,0 90,200"
+        android:strokeColor="#0DFFFFFF"
+        android:strokeWidth="1"
+        android:strokeLineCap="round"
+        android:fillColor="#00000000" />
+
+</vector>

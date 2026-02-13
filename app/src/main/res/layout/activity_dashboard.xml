@@ -1,0 +1,622 @@
+<?xml version="1.0" encoding="utf-8"?>
+<androidx.constraintlayout.widget.ConstraintLayout
+    xmlns:android="http://schemas.android.com/apk/res/android"
+    xmlns:app="http://schemas.android.com/apk/res-auto"
+    xmlns:tools="http://schemas.android.com/tools"
+    android:layout_width="match_parent"
+    android:layout_height="match_parent"
+    android:background="@drawable/bg_screen_gradient"
+    tools:context=".DashboardActivity">
+
+    <!-- Scrollable Content -->
+    <androidx.core.widget.NestedScrollView
+        android:layout_width="match_parent"
+        android:layout_height="0dp"
+        android:clipToPadding="false"
+        android:paddingBottom="100dp"
+        app:layout_constraintBottom_toBottomOf="parent"
+        app:layout_constraintTop_toTopOf="parent">
+
+        <LinearLayout
+            android:layout_width="match_parent"
+            android:layout_height="wrap_content"
+            android:orientation="vertical"
+            android:paddingTop="24dp">
+
+            <!-- HEADER: Centered Brand (Clean & Premium) -->
+            <androidx.constraintlayout.widget.ConstraintLayout
+                android:layout_width="match_parent"
+                android:layout_height="wrap_content"
+                android:paddingHorizontal="16dp"
+                android:layout_marginBottom="24dp">
+
+                <!-- 1. Left: Profile (Person Icon) -->
+                <FrameLayout
+                    android:id="@+id/btnProfile"
+                    android:layout_width="48dp"
+                    android:layout_height="48dp"
+                    android:background="@drawable/bg_nav_circle_glass"
+                    app:layout_constraintStart_toStartOf="parent"
+                    app:layout_constraintTop_toTopOf="parent"
+                    app:layout_constraintBottom_toBottomOf="parent">
+
+                    <ImageView
+                        android:id="@+id/ivProfile"
+                        android:layout_width="24dp"
+                        android:layout_height="24dp"
+                        android:layout_gravity="center"
+                        android:src="@drawable/ic_person"
+                        app:tint="@color/white" />
+                </FrameLayout>
+
+                <!-- 2. Center: Brand (High Contrast) -->
+                <LinearLayout
+                    android:layout_width="wrap_content"
+                    android:layout_height="wrap_content"
+                    android:gravity="center_vertical"
+                    app:layout_constraintStart_toStartOf="parent"
+                    app:layout_constraintEnd_toEndOf="parent"
+                    app:layout_constraintTop_toTopOf="parent"
+                    app:layout_constraintBottom_toBottomOf="parent">
+
+                    <ImageView
+                        android:layout_width="32dp"
+                        android:layout_height="32dp"
+                        android:src="@drawable/app_logo"
+                        android:background="@drawable/bg_circle_white"
+                        android:padding="4dp"
+                        android:layout_marginEnd="10dp"
+                        android:elevation="2dp" />
+
+                    <TextView
+                        android:layout_width="wrap_content"
+                        android:layout_height="wrap_content"
+                        android:text="DIGIFIX"
+                        android:textColor="@color/white"
+                        android:textSize="20sp"
+                        android:textStyle="bold"
+                        android:fontFamily="sans-serif-black"
+                        android:letterSpacing="0.05"
+                        android:shadowColor="#80000000"
+                        android:shadowDx="0"
+                        android:shadowDy="2"
+                        android:shadowRadius="4" />
+                </LinearLayout>
+
+                <!-- 3. Right: Notification -->
+                <FrameLayout
+                    android:id="@+id/btnNotif"
+                    android:layout_width="48dp"
+                    android:layout_height="48dp"
+                    android:background="@drawable/bg_nav_circle_glass"
+                    app:layout_constraintEnd_toEndOf="parent"
+                    app:layout_constraintTop_toTopOf="parent"
+                    app:layout_constraintBottom_toBottomOf="parent">
+
+                    <ImageView
+                        android:layout_width="24dp"
+                        android:layout_height="24dp"
+                        android:layout_gravity="center"
+                        android:src="@drawable/ic_email"
+                        app:tint="@color/white" />
+
+                    <View
+                        android:layout_width="8dp"
+                        android:layout_height="8dp"
+                        android:layout_gravity="top|end"
+                        android:layout_marginTop="12dp"
+                        android:layout_marginEnd="12dp"
+                        android:background="@drawable/bg_notification_dot" />
+                </FrameLayout>
+
+            </androidx.constraintlayout.widget.ConstraintLayout>
+
+            <!-- SWIPABLE HERO SECTION (KEPT NEW) -->
+            <HorizontalScrollView
+                android:layout_width="match_parent"
+                android:layout_height="wrap_content"
+                android:scrollbars="none"
+                android:clipToPadding="false"
+                android:paddingHorizontal="16dp"
+                android:layout_marginBottom="16dp">
+
+                <LinearLayout
+                    android:layout_width="wrap_content"
+                    android:layout_height="wrap_content"
+                    android:orientation="horizontal">
+
+                    <!-- Card 1: Revenue -->
+                    <androidx.constraintlayout.widget.ConstraintLayout
+                        android:layout_width="320dp"
+                        android:layout_height="200dp"
+                        android:background="@drawable/bg_card_glass"
+                        android:padding="24dp"
+                        android:layout_marginEnd="16dp">
+
+                        <TextView
+                            android:id="@+id/tvRevTitle"
+                            android:layout_width="wrap_content"
+                            android:layout_height="wrap_content"
+                            android:text="TOTAL REVENUE"
+                            android:textColor="#CCFFFFFF"
+                            android:textSize="12sp"
+                            android:letterSpacing="0.1"
+                            android:textStyle="bold"
+                            app:layout_constraintStart_toStartOf="parent"
+                            app:layout_constraintTop_toTopOf="parent" />
+
+                        <TextView
+                            android:id="@+id/tvRevAmt"
+                            android:layout_width="wrap_content"
+                            android:layout_height="wrap_content"
+                            android:layout_marginTop="8dp"
+                            android:text="₹4,285.00"
+                            android:textColor="@color/white"
+                            android:textSize="36sp"
+                            android:fontFamily="sans-serif-medium"
+                            app:layout_constraintStart_toStartOf="parent"
+                            app:layout_constraintTop_toBottomOf="@id/tvRevTitle" />
+
+                        <!-- Visual Graph (Reused) -->
+                        <ImageView
+                            android:layout_width="0dp"
+                            android:layout_height="80dp"
+                            android:src="@drawable/bg_graph_placeholder"
+                            android:scaleType="fitXY"
+                            android:alpha="0.5"
+                            app:layout_constraintBottom_toBottomOf="parent"
+                            app:layout_constraintStart_toStartOf="parent"
+                            app:layout_constraintEnd_toEndOf="parent"
+                            android:layout_marginBottom="-24dp"
+                            android:layout_marginHorizontal="-24dp" />
+
+                        <TextView
+                            android:layout_width="wrap_content"
+                            android:layout_height="wrap_content"
+                            android:text="+12.5%"
+                            android:textColor="#4CAF50"
+                            android:textStyle="bold"
+                            app:layout_constraintTop_toTopOf="parent"
+                            app:layout_constraintEnd_toEndOf="parent" />
+
+                    </androidx.constraintlayout.widget.ConstraintLayout>
+
+                    <!-- Card 2: Clients (Peeking) -->
+                    <androidx.constraintlayout.widget.ConstraintLayout
+                        android:layout_width="320dp"
+                        android:layout_height="200dp"
+                        android:background="@drawable/bg_card_glass"
+                        android:padding="24dp">
+
+                        <TextView
+                            android:id="@+id/tvClientTitle"
+                            android:layout_width="wrap_content"
+                            android:layout_height="wrap_content"
+                            android:text="TOTAL CLIENTS"
+                            android:textColor="#CCFFFFFF"
+                            android:textSize="12sp"
+                            android:letterSpacing="0.1"
+                            android:textStyle="bold"
+                            app:layout_constraintStart_toStartOf="parent"
+                            app:layout_constraintTop_toTopOf="parent" />
+
+                        <TextView
+                            android:layout_width="wrap_content"
+                            android:layout_height="wrap_content"
+                            android:layout_marginTop="8dp"
+                            android:text="142"
+                            android:textColor="@color/white"
+                            android:textSize="36sp"
+                            android:fontFamily="sans-serif-medium"
+                            app:layout_constraintStart_toStartOf="parent"
+                            app:layout_constraintTop_toBottomOf="@id/tvClientTitle" />
+
+                        <TextView
+                            android:layout_width="wrap_content"
+                            android:layout_height="wrap_content"
+                            android:text="+5 New this week"
+                            android:textColor="#CCFFFFFF"
+                            app:layout_constraintBottom_toBottomOf="parent"
+                            app:layout_constraintStart_toStartOf="parent" />
+
+                    </androidx.constraintlayout.widget.ConstraintLayout>
+
+                </LinearLayout>
+            </HorizontalScrollView>
+
+            <!-- Page Indicator Dots -->
+            <LinearLayout
+                android:layout_width="match_parent"
+                android:layout_height="wrap_content"
+                android:gravity="center"
+                android:layout_marginBottom="24dp">
+                <View
+                    android:layout_width="8dp"
+                    android:layout_height="8dp"
+                    android:background="@drawable/bg_timeline_dot"
+                    android:layout_marginEnd="8dp" />
+                <View
+                    android:layout_width="8dp"
+                    android:layout_height="8dp"
+                    android:background="@drawable/bg_timeline_dot"
+                    android:alpha="0.3" />
+            </LinearLayout>
+
+            <!-- Quick Actions Grid (REVERTED TO OLD 3-ITEM ROW) -->
+            <LinearLayout
+                android:layout_width="match_parent"
+                android:layout_height="wrap_content"
+                android:orientation="horizontal"
+                android:layout_marginBottom="16dp"
+                android:paddingHorizontal="16dp">
+
+                <TextView
+                    android:layout_width="0dp"
+                    android:layout_weight="1"
+                    android:layout_height="wrap_content"
+                    android:background="@drawable/bg_card_glass"
+                    android:gravity="center"
+                    android:paddingVertical="12dp"
+                    android:text="New Repair"
+                    android:textColor="@color/white"
+                    android:textSize="12sp"
+                    android:drawableTop="@drawable/ic_plus"
+                    android:drawableTint="@color/white"
+                    android:drawablePadding="8dp"
+                    android:layout_marginEnd="8dp" />
+
+                <TextView
+                    android:layout_width="0dp"
+                    android:layout_weight="1"
+                    android:layout_height="wrap_content"
+                    android:background="@drawable/bg_card_glass"
+                    android:gravity="center"
+                    android:paddingVertical="12dp"
+                    android:text="Add Client"
+                    android:textColor="@color/white"
+                    android:textSize="12sp"
+                    android:drawableTop="@drawable/ic_clients"
+                    android:drawableTint="@color/white"
+                    android:drawablePadding="8dp"
+                    android:layout_marginEnd="8dp" />
+
+                <TextView
+                    android:layout_width="0dp"
+                    android:layout_weight="1"
+                    android:layout_height="wrap_content"
+                    android:background="@drawable/bg_card_glass"
+                    android:gravity="center"
+                    android:paddingVertical="12dp"
+                    android:text="Inventory"
+                    android:textColor="@color/white"
+                    android:textSize="12sp"
+                    android:drawableTop="@drawable/ic_settings"
+                    android:drawableTint="@color/white"
+                    android:drawablePadding="8dp" />
+            </LinearLayout>
+
+            <!-- Stats Grid (Full Width Split) - KEPT FROM HIGH DENSITY -->
+            <LinearLayout
+                android:layout_width="match_parent"
+                android:layout_height="Wrap_content"
+                android:orientation="horizontal"
+                android:layout_marginBottom="16dp"
+                android:paddingHorizontal="16dp">
+
+                <!-- Active -->
+                <LinearLayout
+                    android:layout_width="0dp"
+                    android:layout_weight="1"
+                    android:layout_height="wrap_content"
+                    android:background="@drawable/bg_card_glass"
+                    android:orientation="vertical"
+                    android:padding="20dp"
+                    android:layout_marginEnd="8dp">
+
+                    <ImageView
+                        android:layout_width="32dp"
+                        android:layout_height="32dp"
+                        android:src="@drawable/ic_repairs"
+                        app:tint="#4A90E2"
+                        android:layout_marginBottom="16dp" />
+
+                    <TextView
+                        android:layout_width="wrap_content"
+                        android:layout_height="wrap_content"
+                        android:text="18"
+                        android:textColor="@color/white"
+                        android:textSize="32sp"
+                        android:textStyle="bold" />
+
+                    <TextView
+                        android:layout_width="wrap_content"
+                        android:layout_height="wrap_content"
+                        android:text="Active Repairs"
+                        android:textColor="#CCFFFFFF"
+                        android:textSize="12sp" />
+                </LinearLayout>
+
+                <!-- Pending -->
+                <LinearLayout
+                    android:layout_width="0dp"
+                    android:layout_weight="1"
+                    android:layout_height="wrap_content"
+                    android:background="@drawable/bg_card_glass"
+                    android:orientation="vertical"
+                    android:padding="20dp"
+                    android:layout_marginStart="8dp">
+
+                    <ImageView
+                        android:layout_width="32dp"
+                        android:layout_height="32dp"
+                        android:src="@drawable/ic_settings"
+                        app:tint="#9013FE"
+                        android:layout_marginBottom="16dp" />
+
+                    <TextView
+                        android:layout_width="wrap_content"
+                        android:layout_height="wrap_content"
+                        android:text="5"
+                        android:textColor="@color/white"
+                        android:textSize="32sp"
+                        android:textStyle="bold" />
+
+                    <TextView
+                        android:layout_width="wrap_content"
+                        android:layout_height="wrap_content"
+                        android:text="Pending Parts"
+                        android:textColor="#CCFFFFFF"
+                        android:textSize="12sp" />
+                </LinearLayout>
+            </LinearLayout>
+
+            <!-- Activity List (Reference Style) -->
+            <androidx.constraintlayout.widget.ConstraintLayout
+                android:layout_width="match_parent"
+                android:layout_height="wrap_content"
+                android:paddingHorizontal="16dp"
+                android:layout_marginBottom="12dp">
+
+                <TextView
+                    android:layout_width="wrap_content"
+                    android:layout_height="wrap_content"
+                    android:text="RECENT ACTIVITY"
+                    android:textColor="#CCFFFFFF"
+                    android:textSize="12sp"
+                    android:textStyle="bold"
+                    app:layout_constraintStart_toStartOf="parent"
+                    app:layout_constraintTop_toTopOf="parent"
+                    app:layout_constraintBottom_toBottomOf="parent" />
+
+                <TextView
+                    android:layout_width="wrap_content"
+                    android:layout_height="wrap_content"
+                    android:text="View All"
+                    android:textColor="@color/primary_orange"
+                    android:textSize="12sp"
+                    app:layout_constraintEnd_toEndOf="parent"
+                    app:layout_constraintTop_toTopOf="parent"
+                    app:layout_constraintBottom_toBottomOf="parent" />
+
+            </androidx.constraintlayout.widget.ConstraintLayout>
+
+            <LinearLayout
+                android:layout_width="match_parent"
+                android:layout_height="wrap_content"
+                android:orientation="vertical"
+                android:paddingHorizontal="16dp"
+                android:layout_marginBottom="24dp">
+
+                <!-- Activity Card 1 -->
+                <androidx.constraintlayout.widget.ConstraintLayout
+                    android:layout_width="match_parent"
+                    android:layout_height="wrap_content"
+                    android:background="@drawable/bg_activity_card"
+                    android:padding="16dp"
+                    android:layout_marginBottom="12dp">
+
+                    <TextView
+                        android:id="@+id/tvActTitle1"
+                        android:layout_width="0dp"
+                        android:layout_height="wrap_content"
+                        android:text="MacBook Pro Screen Replaced"
+                        android:textColor="@color/white"
+                        android:textSize="14sp"
+                        android:textStyle="bold"
+                        android:layout_marginEnd="8dp"
+                        app:layout_constraintStart_toStartOf="parent"
+                        app:layout_constraintTop_toTopOf="parent"
+                        app:layout_constraintEnd_toStartOf="@+id/tvActTime1" />
+
+                    <TextView
+                        android:id="@+id/tvActTime1"
+                        android:layout_width="wrap_content"
+                        android:layout_height="wrap_content"
+                        android:text="10 min ago"
+                        android:textColor="#80FFFFFF"
+                        android:textSize="12sp"
+                        app:layout_constraintEnd_toEndOf="parent"
+                        app:layout_constraintTop_toTopOf="@id/tvActTitle1"
+                        app:layout_constraintBottom_toBottomOf="@id/tvActTitle1" />
+
+                    <TextView
+                        android:id="@+id/tvActSub1"
+                        android:layout_width="wrap_content"
+                        android:layout_height="wrap_content"
+                        android:layout_marginTop="4dp"
+                        android:text="Order #2234 • Rahul Sharma"
+                        android:textColor="#CCFFFFFF"
+                        android:textSize="12sp"
+                        app:layout_constraintStart_toStartOf="parent"
+                        app:layout_constraintTop_toBottomOf="@id/tvActTitle1" />
+
+                    <TextView
+                        android:layout_width="wrap_content"
+                        android:layout_height="wrap_content"
+                        android:layout_marginTop="12dp"
+                        android:background="@drawable/bg_pill_green"
+                        android:paddingHorizontal="12dp"
+                        android:paddingVertical="4dp"
+                        android:text="Completed"
+                        android:textColor="#4CAF50"
+                        android:textSize="11sp"
+                        android:textStyle="bold"
+                        app:layout_constraintStart_toStartOf="parent"
+                        app:layout_constraintTop_toBottomOf="@id/tvActSub1" />
+
+                </androidx.constraintlayout.widget.ConstraintLayout>
+
+                <!-- Activity Card 2 -->
+                <androidx.constraintlayout.widget.ConstraintLayout
+                    android:layout_width="match_parent"
+                    android:layout_height="wrap_content"
+                    android:background="@drawable/bg_activity_card"
+                    android:padding="16dp">
+
+
+                    <TextView
+                        android:id="@+id/tvActTitle2"
+                        android:layout_width="0dp"
+                        android:layout_height="wrap_content"
+                        android:text="Diagnostic Started"
+                        android:textColor="@color/white"
+                        android:textSize="14sp"
+                        android:textStyle="bold"
+                        android:layout_marginEnd="8dp"
+                        app:layout_constraintStart_toStartOf="parent"
+                        app:layout_constraintTop_toTopOf="parent"
+                        app:layout_constraintEnd_toStartOf="@+id/tvActTime2" />
+
+                    <TextView
+                        android:id="@+id/tvActTime2"
+                        android:layout_width="wrap_content"
+                        android:layout_height="wrap_content"
+                        android:text="1h ago"
+                        android:textColor="#80FFFFFF"
+                        android:textSize="12sp"
+                        app:layout_constraintEnd_toEndOf="parent"
+                        app:layout_constraintTop_toTopOf="@id/tvActTitle2"
+                        app:layout_constraintBottom_toBottomOf="@id/tvActTitle2" />
+
+                    <TextView
+                        android:id="@+id/tvActSub2"
+                        android:layout_width="wrap_content"
+                        android:layout_height="wrap_content"
+                        android:layout_marginTop="4dp"
+                        android:text="Order #2240 • Priya Patel"
+                        android:textColor="#CCFFFFFF"
+                        android:textSize="12sp"
+                        app:layout_constraintStart_toStartOf="parent"
+                        app:layout_constraintTop_toBottomOf="@id/tvActTitle2" />
+
+                    <TextView
+                        android:layout_width="wrap_content"
+                        android:layout_height="wrap_content"
+                        android:layout_marginTop="12dp"
+                        android:background="@drawable/bg_pill_blue"
+                        android:paddingHorizontal="12dp"
+                        android:paddingVertical="4dp"
+                        android:text="In Progress"
+                        android:textColor="#4A90E2"
+                        android:textSize="11sp"
+                        android:textStyle="bold"
+                        app:layout_constraintStart_toStartOf="parent"
+                        app:layout_constraintTop_toBottomOf="@id/tvActSub2" />
+
+                </androidx.constraintlayout.widget.ConstraintLayout>
+
+            </LinearLayout>
+
+        </LinearLayout>
+    </androidx.core.widget.NestedScrollView>
+
+    <!-- Visual Orbit Track -->
+    <ImageView
+        android:layout_width="220dp"
+        android:layout_height="220dp"
+        android:src="@drawable/bg_fan_orbit"
+        android:layout_marginEnd="-20dp"
+        android:layout_marginBottom="-20dp"
+        app:layout_constraintBottom_toBottomOf="parent"
+        app:layout_constraintEnd_toEndOf="parent"
+        android:alpha="0.6" />
+
+    <!-- Corner Fan FAB (Anchor) -->
+    <ImageButton
+        android:id="@+id/fabFan"
+        android:layout_width="64dp"
+        android:layout_height="64dp"
+        android:layout_marginEnd="24dp"
+        android:layout_marginBottom="24dp"
+        android:background="@drawable/bg_fab_circle_orange"
+        android:elevation="12dp"
+        android:src="@drawable/ic_plus"
+        app:tint="@color/white"
+        app:layout_constraintBottom_toBottomOf="parent"
+        app:layout_constraintEnd_toEndOf="parent" />
+
+    <!-- Fan Item 1: Home (Left - Active) -->
+    <ImageButton
+        android:id="@+id/navHome"
+        android:layout_width="48dp"
+        android:layout_height="48dp"
+        android:background="@drawable/bg_nav_circle_glass"
+        android:scaleType="centerInside"
+        android:padding="12dp"
+        android:src="@drawable/ic_home"
+        app:tint="@color/primary_orange"
+        android:elevation="8dp"
+        app:layout_constraintCircle="@id/fabFan"
+        app:layout_constraintCircleRadius="100dp"
+        app:layout_constraintCircleAngle="270"
+        tools:ignore="MissingConstraints" />
+
+    <!-- Fan Item 2: Repairs -->
+    <ImageButton
+        android:id="@+id/navRepairs"
+        android:layout_width="48dp"
+        android:layout_height="48dp"
+        android:background="@drawable/bg_nav_circle_glass"
+        android:scaleType="centerInside"
+        android:padding="12dp"
+        android:src="@drawable/ic_repairs"
+        app:tint="#80FFFFFF"
+        android:elevation="8dp"
+        app:layout_constraintCircle="@id/fabFan"
+        app:layout_constraintCircleRadius="100dp"
+        app:layout_constraintCircleAngle="300"
+        tools:ignore="MissingConstraints" />
+
+    <!-- Fan Item 3: Clients -->
+    <ImageButton
+        android:id="@+id/navClients"
+        android:layout_width="48dp"
+        android:layout_height="48dp"
+        android:background="@drawable/bg_nav_circle_glass"
+        android:scaleType="centerInside"
+        android:padding="12dp"
+        android:src="@drawable/ic_person"
+        app:tint="#80FFFFFF"
+        android:elevation="8dp"
+        app:layout_constraintCircle="@id/fabFan"
+        app:layout_constraintCircleRadius="100dp"
+        app:layout_constraintCircleAngle="330"
+        tools:ignore="MissingConstraints" />
+
+    <!-- Fan Item 4: Settings (Top) -->
+    <ImageButton
+        android:id="@+id/navSettings"
+        android:layout_width="48dp"
+        android:layout_height="48dp"
+        android:background="@drawable/bg_nav_circle_glass"
+        android:scaleType="centerInside"
+        android:padding="12dp"
+        android:src="@drawable/ic_settings"
+        app:tint="#80FFFFFF"
+        android:elevation="8dp"
+        app:layout_constraintCircle="@id/fabFan"
+        app:layout_constraintCircleRadius="100dp"
+        app:layout_constraintCircleAngle="0"
+        tools:ignore="MissingConstraints" />
+
+</androidx.constraintlayout.widget.ConstraintLayout>
