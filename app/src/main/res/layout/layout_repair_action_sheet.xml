@@ -1,0 +1,173 @@
+<?xml version="1.0" encoding="utf-8"?>
+<LinearLayout xmlns:android="http://schemas.android.com/apk/res/android"
+    xmlns:app="http://schemas.android.com/apk/res-auto"
+    android:layout_width="match_parent"
+    android:layout_height="wrap_content"
+    android:orientation="vertical"
+    android:background="@drawable/bg_bottom_sheet_glass"
+    android:padding="24dp">
+
+    <!-- Drag Handle -->
+    <View
+        android:layout_width="40dp"
+        android:layout_height="4dp"
+        android:layout_gravity="center_horizontal"
+        android:background="#33FFFFFF"
+        android:backgroundTint="#80FFFFFF"
+        android:layout_marginBottom="24dp" />
+
+    <!-- Header -->
+    <TextView
+        android:id="@+id/tvSheetCustomerName"
+        android:layout_width="match_parent"
+        android:layout_height="wrap_content"
+        android:text="Customer Name"
+        android:textColor="#FFFFFF"
+        android:textSize="20sp"
+        android:textStyle="bold"
+        android:layout_marginBottom="4dp" />
+
+    <TextView
+        android:id="@+id/tvSheetDeviceName"
+        android:layout_width="match_parent"
+        android:layout_height="wrap_content"
+        android:text="Device Name • Serial"
+        android:textColor="#99FFFFFF"
+        android:textSize="14sp"
+        android:layout_marginBottom="24dp" />
+
+    <!-- Divider -->
+    <View
+        android:layout_width="match_parent"
+        android:layout_height="1dp"
+        android:background="#1AFFFFFF"
+        android:layout_marginBottom="16dp" />
+
+    <!-- Actions -->
+
+    <!-- Call -->
+    <LinearLayout
+        android:id="@+id/actionCall"
+        android:layout_width="match_parent"
+        android:layout_height="wrap_content"
+        android:orientation="horizontal"
+        android:gravity="center_vertical"
+        android:paddingVertical="12dp"
+        android:background="?attr/selectableItemBackground">
+
+        <ImageView
+            android:layout_width="24dp"
+            android:layout_height="24dp"
+            android:src="@drawable/ic_call"
+            app:tint="#4CAF50" />
+
+        <TextView
+            android:layout_width="wrap_content"
+            android:layout_height="wrap_content"
+            android:text="Call Customer"
+            android:textColor="#FFFFFF"
+            android:textSize="16sp"
+            android:layout_marginStart="16dp" />
+    </LinearLayout>
+
+    <!-- WhatsApp -->
+    <LinearLayout
+        android:id="@+id/actionWhatsApp"
+        android:layout_width="match_parent"
+        android:layout_height="wrap_content"
+        android:orientation="horizontal"
+        android:gravity="center_vertical"
+        android:paddingVertical="12dp"
+        android:background="?attr/selectableItemBackground">
+
+        <ImageView
+            android:layout_width="24dp"
+            android:layout_height="24dp"
+            android:src="@drawable/ic_message"
+            app:tint="#009688" />
+
+        <TextView
+            android:layout_width="wrap_content"
+            android:layout_height="wrap_content"
+            android:text="WhatsApp"
+            android:textColor="#FFFFFF"
+            android:textSize="16sp"
+            android:layout_marginStart="16dp" />
+    </LinearLayout>
+
+    <!-- Warranty (Conditional) -->
+    <LinearLayout
+        android:id="@+id/actionWarranty"
+        android:layout_width="match_parent"
+        android:layout_height="wrap_content"
+        android:orientation="horizontal"
+        android:gravity="center_vertical"
+        android:paddingVertical="12dp"
+        android:background="?attr/selectableItemBackground">
+
+        <ImageView
+            android:layout_width="24dp"
+            android:layout_height="24dp"
+            android:src="@drawable/ic_store"
+            app:tint="#7C4DFF" />
+
+        <TextView
+            android:layout_width="wrap_content"
+            android:layout_height="wrap_content"
+            android:text="Send to Warranty"
+            android:textColor="#FFFFFF"
+            android:textSize="16sp"
+            android:layout_marginStart="16dp" />
+    </LinearLayout>
+
+    <!-- Mark Complete (Conditional) -->
+    <LinearLayout
+        android:id="@+id/actionComplete"
+        android:layout_width="match_parent"
+        android:layout_height="wrap_content"
+        android:orientation="horizontal"
+        android:gravity="center_vertical"
+        android:paddingVertical="12dp"
+        android:background="?attr/selectableItemBackground">
+
+        <ImageView
+            android:layout_width="24dp"
+            android:layout_height="24dp"
+            android:src="@drawable/ic_verified"
+            app:tint="#4CAF50" />
+
+        <TextView
+            android:layout_width="wrap_content"
+            android:layout_height="wrap_content"
+            android:text="Mark as Complete"
+            android:textColor="#FFFFFF"
+            android:textSize="16sp"
+            android:layout_marginStart="16dp" />
+    </LinearLayout>
+
+    <!-- Delete -->
+    <LinearLayout
+        android:id="@+id/actionDelete"
+        android:layout_width="match_parent"
+        android:layout_height="wrap_content"
+        android:orientation="horizontal"
+        android:gravity="center_vertical"
+        android:paddingVertical="12dp"
+        android:background="?attr/selectableItemBackground">
+
+        <ImageView
+            android:layout_width="24dp"
+            android:layout_height="24dp"
+            android:src="@drawable/ic_delete"
+            app:tint="#F44336" />
+
+        <TextView
+            android:layout_width="wrap_content"
+            android:layout_height="wrap_content"
+            android:text="Delete Entry"
+            android:textColor="#F44336"
+            android:textSize="16sp"
+            android:layout_marginStart="16dp" />
+    </LinearLayout>
+
+</LinearLayout>

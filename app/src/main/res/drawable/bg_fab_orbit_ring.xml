@@ -1,0 +1,11 @@
+<?xml version="1.0" encoding="utf-8"?>
+<layer-list xmlns:android="http://schemas.android.com/apk/res/android">
+    <!-- Outer Glow Ring -->
+    <item>
+        <shape android:shape="oval">
+            <stroke android:width="2dp" android:color="#40FF5722" /> <!-- Faint Orange Ring -->
+            <solid android:color="#00000000" />
+            <size android:width="72dp" android:height="72dp" />
+        </shape>
+    </item>
+</layer-list>

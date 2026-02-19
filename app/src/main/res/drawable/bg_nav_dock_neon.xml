@@ -1,0 +1,23 @@
+<?xml version="1.0" encoding="utf-8"?>
+<layer-list xmlns:android="http://schemas.android.com/apk/res/android">
+    <!-- 1. The Gradient Stroke (Simulated via shape behind) -->
+    <item>
+        <shape android:shape="rectangle">
+            <corners android:radius="50dp" />
+            <gradient
+                android:angle="315"
+                android:startColor="#FF5722"
+                android:centerColor="#33FFFFFF"
+                android:endColor="#00FFFFFF"
+                android:type="linear" />
+        </shape>
+    </item>
+
+    <!-- 2. The Main Dark Fill (Inset by 1.5dp to reveal stroke) -->
+    <item android:bottom="1.5dp" android:left="1.5dp" android:right="1.5dp" android:top="1.5dp">
+        <shape android:shape="rectangle">
+            <corners android:radius="48dp" />
+            <solid android:color="#F2151515" /> <!-- Deep Dark Glass -->
+        </shape>
+    </item>
+</layer-list>
