@@ -1,4 +1,12 @@
 // Top-level build file where you can add configuration options common to all sub-projects/modules.
+
+buildscript {
+    dependencies {
+        // Add this line
+        classpath 'com.google.gms:google-services:4.4.1' // Check for the latest version if needed
+    }
+}
+
 plugins {
 alias(libs.plugins.android.application) apply false
 }

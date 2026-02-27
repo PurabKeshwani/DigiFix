@@ -1,0 +1,29 @@
+{
+  "project_info": {
+    "project_number": "226580712196",
+    "project_id": "digifix-a3e00",
+    "storage_bucket": "digifix-a3e00.firebasestorage.app"
+  },
+  "client": [
+    {
+      "client_info": {
+        "mobilesdk_app_id": "1:226580712196:android:48aa1033f4bf0d801bde51",
+        "android_client_info": {
+          "package_name": "com.example.digifix"
+        }
+      },
+      "oauth_client": [],
+      "api_key": [
+        {
+          "current_key": "AIzaSyAa_UK8FYixEE9LE074Cpan87I97mU9efc"
+        }
+      ],
+      "services": {
+        "appinvite_service": {
+          "other_platform_oauth_client": []
+        }
+      }
+    }
+  ],
+  "configuration_version": "1"
+}

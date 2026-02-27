@@ -7,7 +7,6 @@
     android:layout_height="match_parent"
     android:background="@drawable/bg_screen_gradient">
 
-    <!-- Header & Profile -->
     <LinearLayout
         android:id="@+id/header"
         android:layout_width="match_parent"
@@ -26,7 +25,6 @@
             android:textSize="32sp"
             android:textStyle="bold" />
 
-        <!-- Profile Card -->
         <androidx.constraintlayout.widget.ConstraintLayout
             android:layout_width="match_parent"
             android:layout_height="wrap_content"
@@ -57,9 +55,10 @@
                 app:layout_constraintBottom_toBottomOf="parent">
 
                 <TextView
+                    android:id="@+id/tvUserEmail"
                     android:layout_width="wrap_content"
                     android:layout_height="wrap_content"
-                    android:text="Amit's Workshop"
+                    android:text="Loading..."
                     android:textColor="@color/white"
                     android:textSize="18sp"
                     android:textStyle="bold" />
@@ -91,7 +90,6 @@
         </androidx.constraintlayout.widget.ConstraintLayout>
     </LinearLayout>
 
-    <!-- Settings List -->
     <ScrollView
         android:layout_width="match_parent"
         android:layout_height="0dp"
@@ -106,7 +104,6 @@
             android:orientation="vertical"
             android:paddingHorizontal="24dp">
 
-            <!-- Section: Account -->
             <TextView
                 android:layout_width="wrap_content"
                 android:layout_height="wrap_content"
@@ -125,7 +122,6 @@
                 android:divider="@drawable/ic_divider_horizontal"
                 android:showDividers="middle">
 
-                <!-- Shop Profile -->
                 <LinearLayout
                     android:id="@+id/btnShopProfile"
                     android:layout_width="match_parent"
@@ -159,11 +155,9 @@
                         app:tint="#80FFFFFF" />
                 </LinearLayout>
 
-                <!-- Divider Line manually if needed, but showDividers handles generic spacing -->
                 <View android:layout_width="match_parent" android:layout_height="1dp"
                     android:background="#10FFFFFF" />
 
-                <!-- Security -->
                 <LinearLayout
                     android:id="@+id/btnSecurity"
                     android:layout_width="match_parent"
@@ -200,7 +194,6 @@
 
             <Space android:layout_width="match_parent" android:layout_height="24dp" />
 
-            <!-- Section: App Settings -->
             <TextView
                 android:layout_width="wrap_content"
                 android:layout_height="wrap_content"
@@ -219,7 +212,6 @@
                 android:divider="@drawable/ic_divider_horizontal"
                 android:showDividers="middle">
 
-                <!-- Notifications -->
                 <LinearLayout
                     android:id="@+id/btnNotifications"
                     android:layout_width="match_parent"
@@ -256,7 +248,6 @@
                 <View android:layout_width="match_parent" android:layout_height="1dp"
                     android:background="#10FFFFFF" />
 
-                <!-- Dark Mode -->
                 <LinearLayout
                     android:id="@+id/btnDarkMode"
                     android:layout_width="match_parent"
@@ -282,7 +273,6 @@
                         android:textSize="16sp"
                         android:layout_marginStart="16dp" />
 
-                    <!-- Toggle Switch visualization -->
                     <androidx.constraintlayout.widget.ConstraintLayout
                         android:layout_width="40dp"
                         android:layout_height="24dp"
@@ -302,7 +292,6 @@
 
             <Space android:layout_width="match_parent" android:layout_height="32dp" />
 
-            <!-- Logout -->
             <TextView
                 android:id="@+id/btnLogout"
                 android:layout_width="match_parent"
@@ -329,7 +318,6 @@
         </LinearLayout>
     </ScrollView>
 
-    <!-- NAVIGATION: Integrated Capsule (The Remote) -->
     <androidx.constraintlayout.widget.ConstraintLayout
         android:layout_width="match_parent"
         android:layout_height="wrap_content"
@@ -350,7 +338,6 @@
             app:layout_constraintStart_toStartOf="parent"
             app:layout_constraintEnd_toEndOf="parent">
 
-            <!-- 1. Home -->
             <FrameLayout
                 android:id="@+id/btnNavHome"
                 android:layout_width="42dp"
@@ -373,7 +360,6 @@
 
             <Space android:layout_width="4dp" android:layout_height="wrap_content" />
 
-            <!-- 2. Repairs -->
             <FrameLayout
                 android:id="@+id/btnNavRepairs"
                 android:layout_width="42dp"
@@ -396,7 +382,6 @@
 
             <Space android:layout_width="12dp" android:layout_height="wrap_content" />
 
-            <!-- CENTER: INTEGRATED FAB -->
             <ImageButton
                 android:id="@+id/fabMain"
                 android:layout_width="48dp"
@@ -410,7 +395,6 @@
 
             <Space android:layout_width="12dp" android:layout_height="wrap_content" />
 
-            <!-- 3. Clients -->
             <FrameLayout
                 android:id="@+id/btnNavClients"
                 android:layout_width="42dp"
@@ -433,7 +417,6 @@
 
             <Space android:layout_width="4dp" android:layout_height="wrap_content" />
 
-            <!-- 4. Settings (Active) -->
             <FrameLayout
                 android:id="@+id/btnNavSettings"
                 android:layout_width="42dp"
