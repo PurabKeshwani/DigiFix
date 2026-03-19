@@ -1,0 +1,227 @@
+<?xml version="1.0" encoding="utf-8"?>
+<androidx.constraintlayout.widget.ConstraintLayout
+    xmlns:android="http://schemas.android.com/apk/res/android"
+    xmlns:app="http://schemas.android.com/apk/res-auto"
+    android:layout_width="match_parent"
+    android:layout_height="wrap_content"
+    android:background="@drawable/bg_nav_dock_glass_clean"
+    android:padding="24dp">
+
+    <View
+        android:id="@+id/dragHandle"
+        android:layout_width="40dp"
+        android:layout_height="4dp"
+        android:background="@drawable/bg_nav_capsule"
+        android:backgroundTint="#33FFFFFF"
+        app:layout_constraintTop_toTopOf="parent"
+        app:layout_constraintStart_toStartOf="parent"
+        app:layout_constraintEnd_toEndOf="parent"
+        android:layout_marginTop="8dp" />
+
+    <TextView
+        android:id="@+id/tvTitle"
+        android:layout_width="wrap_content"
+        android:layout_height="wrap_content"
+        android:text="Update Status"
+        android:textColor="@color/white"
+        android:textSize="20sp"
+        android:textStyle="bold"
+        android:layout_marginTop="24dp"
+        app:layout_constraintTop_toBottomOf="@id/dragHandle"
+        app:layout_constraintStart_toStartOf="parent" />
+
+    <!-- Timeline Container -->
+    <LinearLayout
+        android:layout_width="match_parent"
+        android:layout_height="wrap_content"
+        android:orientation="vertical"
+        android:layout_marginTop="24dp"
+        app:layout_constraintTop_toBottomOf="@id/tvTitle">
+
+        <!-- Step 1: Pending -->
+        <LinearLayout
+            android:id="@+id/btnStatusPending"
+            android:layout_width="match_parent"
+            android:layout_height="wrap_content"
+            android:orientation="horizontal"
+            android:gravity="center_vertical"
+            android:paddingVertical="12dp">
+
+            <ImageView
+                android:id="@+id/imgDotPending"
+                android:layout_width="16dp"
+                android:layout_height="16dp"
+                android:src="@drawable/bg_circle_white"
+                app:tint="#FF9800" />
+
+            <TextView
+                android:id="@+id/tvPending"
+                android:layout_width="wrap_content"
+                android:layout_height="wrap_content"
+                android:text="Pending / Received"
+                android:textColor="@color/white"
+                android:textSize="16sp"
+                android:layout_marginStart="16dp" />
+        </LinearLayout>
+
+        <View
+            android:layout_width="2dp"
+            android:layout_height="24dp"
+            android:background="#33FFFFFF"
+            android:layout_marginStart="7dp" />
+
+        <!-- Step 2: Diagnostics / In Shop -->
+        <LinearLayout
+            android:id="@+id/btnStatusInShop"
+            android:layout_width="match_parent"
+            android:layout_height="wrap_content"
+            android:orientation="horizontal"
+            android:gravity="center_vertical"
+            android:paddingVertical="12dp">
+
+            <ImageView
+                android:id="@+id/imgDotInShop"
+                android:layout_width="16dp"
+                android:layout_height="16dp"
+                android:src="@drawable/bg_circle_white"
+                app:tint="#33FFFFFF" />
+
+            <TextView
+                android:id="@+id/tvInShop"
+                android:layout_width="wrap_content"
+                android:layout_height="wrap_content"
+                android:text="In Progress / In Shop"
+                android:textColor="#80FFFFFF"
+                android:textSize="16sp"
+                android:layout_marginStart="16dp" />
+        </LinearLayout>
+
+        <View
+            android:layout_width="2dp"
+            android:layout_height="24dp"
+            android:background="#33FFFFFF"
+            android:layout_marginStart="7dp" />
+
+        <!-- Step 3: Waiting for Parts -->
+        <LinearLayout
+            android:id="@+id/btnStatusParts"
+            android:layout_width="match_parent"
+            android:layout_height="wrap_content"
+            android:orientation="horizontal"
+            android:gravity="center_vertical"
+            android:paddingVertical="12dp">
+
+            <ImageView
+                android:id="@+id/imgDotParts"
+                android:layout_width="16dp"
+                android:layout_height="16dp"
+                android:src="@drawable/bg_circle_white"
+                app:tint="#33FFFFFF" />
+
+            <TextView
+                android:id="@+id/tvParts"
+                android:layout_width="wrap_content"
+                android:layout_height="wrap_content"
+                android:text="Waiting for Parts"
+                android:textColor="#80FFFFFF"
+                android:textSize="16sp"
+                android:layout_marginStart="16dp" />
+        </LinearLayout>
+
+        <View
+            android:layout_width="2dp"
+            android:layout_height="24dp"
+            android:background="#33FFFFFF"
+            android:layout_marginStart="7dp" />
+
+        <!-- Step 4: Sent to Warranty -->
+        <LinearLayout
+            android:id="@+id/btnStatusWarranty"
+            android:layout_width="match_parent"
+            android:layout_height="wrap_content"
+            android:orientation="horizontal"
+            android:gravity="center_vertical"
+            android:paddingVertical="12dp">
+
+            <ImageView
+                android:id="@+id/imgDotWarranty"
+                android:layout_width="16dp"
+                android:layout_height="16dp"
+                android:src="@drawable/bg_circle_white"
+                app:tint="#33FFFFFF" />
+
+            <TextView
+                android:id="@+id/tvWarranty"
+                android:layout_width="wrap_content"
+                android:layout_height="wrap_content"
+                android:text="Sent to Warranty Center"
+                android:textColor="#80FFFFFF"
+                android:textSize="16sp"
+                android:layout_marginStart="16dp" />
+        </LinearLayout>
+
+        <View
+            android:layout_width="2dp"
+            android:layout_height="24dp"
+            android:background="#33FFFFFF"
+            android:layout_marginStart="7dp" />
+
+        <!-- Step 5: Completed -->
+        <LinearLayout
+            android:id="@+id/btnStatusCompleted"
+            android:layout_width="match_parent"
+            android:layout_height="wrap_content"
+            android:orientation="horizontal"
+            android:gravity="center_vertical"
+            android:paddingVertical="12dp">
+
+            <ImageView
+                android:id="@+id/imgDotCompleted"
+                android:layout_width="16dp"
+                android:layout_height="16dp"
+                android:src="@drawable/bg_circle_white"
+                app:tint="#33FFFFFF" />
+
+            <TextView
+                android:id="@+id/tvCompleted"
+                android:layout_width="wrap_content"
+                android:layout_height="wrap_content"
+                android:text="Completed / Ready"
+                android:textColor="#80FFFFFF"
+                android:textSize="16sp"
+                android:layout_marginStart="16dp" />
+        </LinearLayout>
+
+        <View
+            android:layout_width="match_parent"
+            android:layout_height="1dp"
+            android:background="#1AFFFFFF"
+            android:layout_marginVertical="16dp" />
+
+        <!-- Step 6: Cancelled -->
+        <LinearLayout
+            android:id="@+id/btnStatusCancelled"
+            android:layout_width="match_parent"
+            android:layout_height="wrap_content"
+            android:orientation="horizontal"
+            android:gravity="center_vertical"
+            android:paddingVertical="12dp">
+
+            <ImageView
+                android:layout_width="16dp"
+                android:layout_height="16dp"
+                android:src="@drawable/ic_lock"
+                app:tint="#F44336" />
+
+            <TextView
+                android:layout_width="wrap_content"
+                android:layout_height="wrap_content"
+                android:text="Cancelled / Rejected"
+                android:textColor="#F44336"
+                android:textSize="16sp"
+                android:layout_marginStart="16dp" />
+        </LinearLayout>
+
+    </LinearLayout>
+
+</androidx.constraintlayout.widget.ConstraintLayout>

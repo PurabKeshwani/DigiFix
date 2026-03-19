@@ -8,5 +8,15 @@
     <color name="black">#FF000000</color>
     <color name="white">#FFFFFFFF</color>
     <color name="glass_border">#1AFFFFFF</color>
+    <color name="figma_bg">#0D0D0D</color>
+    <color name="figma_card">#1A1A1A</color>
+    <color name="figma_orange">#EF8432</color>
+    <color name="figma_text_muted">#8A8A8A</color>
 
-    <color name="bg_dark">#1E1C1A</color>        <color name="card_bg">#2B2928</color>        <color name="primary_orange">#E68A45</color> <color name="text_hint">#9E9E9E</color>      <color name="input_bg">#181615</color>       <color name="stroke_gray">#444444</color>    </resources>
+    <color name="bg_dark">#1E1C1A</color>
+    <color name="card_bg">#2B2928</color>
+    <color name="primary_orange">#E68A45</color>
+    <color name="text_hint">#9E9E9E</color>
+    <color name="input_bg">#181615</color>
+    <color name="stroke_gray">#444444</color>
+</resources>

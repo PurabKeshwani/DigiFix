@@ -1,0 +1,247 @@
+<?xml version="1.0" encoding="utf-8"?>
+<androidx.constraintlayout.widget.ConstraintLayout
+    xmlns:android="http://schemas.android.com/apk/res/android"
+    xmlns:app="http://schemas.android.com/apk/res-auto"
+    xmlns:tools="http://schemas.android.com/tools"
+    android:layout_width="match_parent"
+    android:layout_height="match_parent"
+    android:background="@drawable/bg_screen_gradient">
+
+    <!-- Header -->
+    <LinearLayout
+        android:id="@+id/header"
+        android:layout_width="match_parent"
+        android:layout_height="wrap_content"
+        android:orientation="horizontal"
+        android:gravity="center_vertical"
+        android:paddingHorizontal="24dp"
+        android:paddingTop="12dp"
+        android:paddingBottom="16dp"
+        app:layout_constraintTop_toTopOf="parent">
+
+        <LinearLayout
+            android:layout_width="0dp"
+            android:layout_height="wrap_content"
+            android:layout_weight="1"
+            android:orientation="vertical">
+
+            <TextView
+                android:layout_width="wrap_content"
+                android:layout_height="wrap_content"
+                android:text="Repairs"
+                android:textColor="@color/white"
+                android:textSize="32sp"
+                android:textStyle="bold" />
+
+            <TextView
+                android:layout_width="wrap_content"
+                android:layout_height="wrap_content"
+                android:text="12 active jobs"
+                android:textColor="#80FFFFFF"
+                android:textSize="14sp" />
+        </LinearLayout>
+
+        <!-- New Glass Search Bar to use empty space -->
+        <LinearLayout
+            android:layout_width="160dp"
+            android:layout_height="40dp"
+            android:background="@drawable/bg_card_glass"
+            android:gravity="center_vertical"
+            android:paddingHorizontal="12dp"
+            android:orientation="horizontal">
+
+            <ImageView
+                android:layout_width="18dp"
+                android:layout_height="18dp"
+                android:src="@drawable/ic_search"
+                app:tint="#80FFFFFF"
+                android:layout_marginEnd="8dp" />
+
+            <EditText
+                android:id="@+id/etSearch"
+                android:layout_width="match_parent"
+                android:layout_height="match_parent"
+                android:background="@null"
+                android:hint="Search..."
+                android:textColor="#FFFFFF"
+                android:textColorHint="#60FFFFFF"
+                android:textSize="14sp"
+                android:inputType="text"
+                android:maxLines="1"
+                android:imeOptions="actionSearch" />
+        </LinearLayout>
+    </LinearLayout>
+
+    <!-- Tabs -->
+    <com.google.android.material.tabs.TabLayout
+        android:id="@+id/tabLayout"
+        android:layout_width="match_parent"
+        android:layout_height="wrap_content"
+        android:layout_marginTop="8dp"
+        android:background="@android:color/transparent"
+        app:tabIndicatorColor="@color/primary_orange"
+        app:tabIndicatorHeight="3dp"
+        app:tabMode="fixed"
+        app:tabSelectedTextColor="@color/primary_orange"
+        app:tabTextColor="#80FFFFFF"
+        app:layout_constraintTop_toBottomOf="@id/header">
+
+        <com.google.android.material.tabs.TabItem
+            android:layout_width="wrap_content"
+            android:layout_height="wrap_content"
+            android:text="PENDING" />
+
+        <com.google.android.material.tabs.TabItem
+            android:layout_width="wrap_content"
+            android:layout_height="wrap_content"
+            android:text="COMPLETED" />
+    </com.google.android.material.tabs.TabLayout>
+
+    <!-- Repairs List -->
+
+    <!-- NAVIGATION: Integrated Capsule (The Remote) -->
+    <androidx.recyclerview.widget.RecyclerView
+        android:id="@+id/rvRepairs"
+        android:layout_width="match_parent"
+        android:layout_height="0dp"
+        android:clipToPadding="false"
+        android:paddingHorizontal="16dp"
+        android:paddingTop="8dp"
+        android:paddingBottom="100dp"
+        app:layout_constraintBottom_toBottomOf="parent"
+        app:layout_constraintTop_toBottomOf="@id/tabLayout"
+        app:layout_constraintVertical_bias="0.0"
+        tools:layout_editor_absoluteX="0dp"
+        tools:listitem="@layout/item_repair_card"
+        tools:itemCount="3" />
+
+    <!-- NAVIGATION: Integrated Capsule (The Remote) -->
+    <androidx.constraintlayout.widget.ConstraintLayout
+        android:layout_width="match_parent"
+        android:layout_height="wrap_content"
+        android:paddingBottom="36dp"
+        app:layout_constraintBottom_toBottomOf="parent">
+
+        <LinearLayout
+            android:id="@+id/navDock"
+            android:layout_width="wrap_content"
+            android:layout_height="wrap_content"
+            android:orientation="horizontal"
+            android:gravity="center_vertical"
+            android:background="@drawable/bg_nav_bar_glass"
+            android:paddingHorizontal="12dp"
+            android:paddingVertical="6dp"
+            android:elevation="12dp"
+            app:layout_constraintBottom_toBottomOf="parent"
+            app:layout_constraintStart_toStartOf="parent"
+            app:layout_constraintEnd_toEndOf="parent">
+
+            <!-- 1. Home -->
+            <FrameLayout
+                android:id="@+id/btnNavHome"
+                android:layout_width="42dp"
+                android:layout_height="42dp">
+                <ImageView
+                    android:id="@+id/navHome"
+                    android:layout_width="match_parent"
+                    android:layout_height="match_parent"
+                    android:padding="10dp"
+                    android:src="@drawable/ic_home"
+                    app:tint="#80FFFFFF" />
+                <View
+                    android:layout_width="4dp"
+                    android:layout_height="4dp"
+                    android:background="@drawable/bg_notification_dot"
+                    android:layout_gravity="bottom|center_horizontal"
+                    android:layout_marginBottom="6dp"
+                    android:visibility="gone" />
+            </FrameLayout>
+
+            <Space android:layout_width="4dp" android:layout_height="wrap_content" />
+
+            <!-- 2. Repairs (Active) -->
+            <FrameLayout
+                android:id="@+id/btnNavRepairs"
+                android:layout_width="42dp"
+                android:layout_height="42dp">
+                <ImageView
+                    android:id="@+id/navRepairs"
+                    android:layout_width="match_parent"
+                    android:layout_height="match_parent"
+                    android:padding="10dp"
+                    android:src="@drawable/ic_repairs"
+                    app:tint="@color/primary_orange" />
+                <View
+                    android:layout_width="4dp"
+                    android:layout_height="4dp"
+                    android:background="@drawable/bg_notification_dot"
+                    android:layout_gravity="bottom|center_horizontal"
+                    android:layout_marginBottom="6dp"
+                    android:visibility="visible" />
+            </FrameLayout>
+
+            <Space android:layout_width="12dp" android:layout_height="wrap_content" />
+
+            <!-- CENTER: INTEGRATED FAB -->
+            <ImageButton
+                android:id="@+id/fabMain"
+                android:layout_width="48dp"
+                android:layout_height="48dp"
+                android:background="@drawable/bg_fab_circle_orange"
+                android:elevation="4dp"
+                android:src="@drawable/ic_plus"
+                android:padding="12dp"
+                android:scaleType="fitCenter"
+                app:tint="@color/white" />
+
+            <Space android:layout_width="12dp" android:layout_height="wrap_content" />
+
+            <!-- 3. Clients -->
+            <FrameLayout
+                android:id="@+id/btnNavClients"
+                android:layout_width="42dp"
+                android:layout_height="42dp">
+                <ImageView
+                    android:id="@+id/navClients"
+                    android:layout_width="match_parent"
+                    android:layout_height="match_parent"
+                    android:padding="10dp"
+                    android:src="@drawable/ic_person"
+                    app:tint="#80FFFFFF" />
+                <View
+                    android:layout_width="4dp"
+                    android:layout_height="4dp"
+                    android:background="@drawable/bg_notification_dot"
+                    android:layout_gravity="bottom|center_horizontal"
+                    android:layout_marginBottom="6dp"
+                    android:visibility="gone" />
+            </FrameLayout>
+
+            <Space android:layout_width="4dp" android:layout_height="wrap_content" />
+
+            <!-- 4. Settings -->
+            <FrameLayout
+                android:id="@+id/btnNavSettings"
+                android:layout_width="42dp"
+                android:layout_height="42dp">
+                <ImageView
+                    android:id="@+id/navSettings"
+                    android:layout_width="match_parent"
+                    android:layout_height="match_parent"
+                    android:padding="10dp"
+                    android:src="@drawable/ic_settings"
+                    app:tint="#80FFFFFF" />
+                <View
+                    android:layout_width="4dp"
+                    android:layout_height="4dp"
+                    android:background="@drawable/bg_notification_dot"
+                    android:layout_gravity="bottom|center_horizontal"
+                    android:layout_marginBottom="6dp"
+                    android:visibility="gone" />
+            </FrameLayout>
+
+        </LinearLayout>
+
+    </androidx.constraintlayout.widget.ConstraintLayout>
+
+</androidx.constraintlayout.widget.ConstraintLayout>
