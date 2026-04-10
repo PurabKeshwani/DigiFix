@@ -315,6 +315,16 @@
                 android:gravity="center"
                 android:layout_marginTop="16dp" />
 
+            <!-- Temporary debug button -->
+            <Button
+                android:id="@+id/btnTestWorker"
+                android:layout_width="match_parent"
+                android:layout_height="wrap_content"
+                android:layout_marginTop="24dp"
+                android:backgroundTint="#9C27B0"
+                android:text="Test Daily Pulse (in 30s)"
+                android:textColor="@color/white" />
+
         </LinearLayout>
     </ScrollView>
 

@@ -292,10 +292,9 @@ public class RepairsActivity extends AppCompatActivity implements RepairsAdapter
             finish();
         });
 
-        // FAB
-        findViewById(R.id.fabMain).setOnClickListener(v -> {
-             Toast.makeText(this, "Quick Add (Placeholder)", Toast.LENGTH_SHORT).show();
-        });
+        // FAB — Launch Add Repair Ticket (GPS + Camera experiment)
+        findViewById(R.id.fabMain).setOnClickListener(v ->
+                startActivity(new android.content.Intent(this, AddRepairActivity.class)));
     }
 
     @Override

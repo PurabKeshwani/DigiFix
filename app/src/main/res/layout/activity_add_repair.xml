@@ -1,0 +1,545 @@
+<?xml version="1.0" encoding="utf-8"?>
+<androidx.constraintlayout.widget.ConstraintLayout
+    xmlns:android="http://schemas.android.com/apk/res/android"
+    xmlns:app="http://schemas.android.com/apk/res-auto"
+    android:layout_width="match_parent"
+    android:layout_height="match_parent"
+    android:background="@drawable/bg_screen_gradient">
+
+    <!-- ═══ SCROLLABLE CONTENT ═══ -->
+    <androidx.core.widget.NestedScrollView
+        android:layout_width="match_parent"
+        android:layout_height="match_parent"
+        android:clipToPadding="false"
+        android:paddingBottom="48dp"
+        app:layout_constraintTop_toTopOf="parent"
+        app:layout_constraintBottom_toBottomOf="parent">
+
+        <LinearLayout
+            android:layout_width="match_parent"
+            android:layout_height="wrap_content"
+            android:orientation="vertical"
+            android:paddingTop="16dp">
+
+            <!-- ══════════════════════════════════════ -->
+            <!-- SECTION 0: HEADER                      -->
+            <!-- ══════════════════════════════════════ -->
+            <LinearLayout
+                android:id="@+id/sectionHeader"
+                android:layout_width="match_parent"
+                android:layout_height="wrap_content"
+                android:orientation="horizontal"
+                android:gravity="center_vertical"
+                android:paddingHorizontal="20dp"
+                android:paddingBottom="20dp"
+                android:alpha="0">
+
+                <!-- Back button (glass circle) -->
+                <FrameLayout
+                    android:id="@+id/btnBack"
+                    android:layout_width="40dp"
+                    android:layout_height="40dp"
+                    android:background="@drawable/bg_nav_circle_glass">
+                    <ImageView
+                        android:layout_width="20dp"
+                        android:layout_height="20dp"
+                        android:layout_gravity="center"
+                        android:src="@drawable/ic_back"
+                        app:tint="@color/white" />
+                </FrameLayout>
+
+                <!-- Title block -->
+                <LinearLayout
+                    android:layout_width="0dp"
+                    android:layout_height="wrap_content"
+                    android:layout_weight="1"
+                    android:orientation="vertical"
+                    android:layout_marginStart="16dp">
+
+                    <TextView
+                        android:layout_width="wrap_content"
+                        android:layout_height="wrap_content"
+                        android:text="NEW TICKET"
+                        android:textColor="@color/white"
+                        android:textSize="28sp"
+                        android:textStyle="bold"
+                        android:fontFamily="sans-serif-black" />
+
+                    <TextView
+                        android:layout_width="wrap_content"
+                        android:layout_height="wrap_content"
+                        android:text="Log a device repair"
+                        android:textColor="#80FFFFFF"
+                        android:textSize="13sp" />
+                </LinearLayout>
+
+                <!-- Step counter pill -->
+                <TextView
+                    android:layout_width="wrap_content"
+                    android:layout_height="wrap_content"
+                    android:background="@drawable/bg_card_glass"
+                    android:paddingHorizontal="12dp"
+                    android:paddingVertical="6dp"
+                    android:text="3 STEPS"
+                    android:textColor="@color/primary_orange"
+                    android:textSize="11sp"
+                    android:textStyle="bold"
+                    android:letterSpacing="0.1" />
+
+            </LinearLayout>
+
+            <!-- ══════════════════════════════════════ -->
+            <!-- SECTION 1: DEVICE PHOTO                -->
+            <!-- ══════════════════════════════════════ -->
+            <LinearLayout
+                android:id="@+id/sectionPhoto"
+                android:layout_width="match_parent"
+                android:layout_height="wrap_content"
+                android:orientation="vertical"
+                android:background="@drawable/bg_card_glass"
+                android:padding="20dp"
+                android:layout_marginHorizontal="16dp"
+                android:layout_marginBottom="16dp"
+                android:elevation="4dp"
+                android:alpha="0">
+
+                <!-- Section Label Row -->
+                <LinearLayout
+                    android:layout_width="match_parent"
+                    android:layout_height="wrap_content"
+                    android:orientation="horizontal"
+                    android:gravity="center_vertical"
+                    android:layout_marginBottom="16dp">
+
+                    <!-- Orange step number -->
+                    <TextView
+                        android:layout_width="28dp"
+                        android:layout_height="28dp"
+                        android:text="1"
+                        android:textColor="@color/white"
+                        android:textSize="13sp"
+                        android:textStyle="bold"
+                        android:gravity="center"
+                        android:background="@drawable/bg_fab_circle_orange"
+                        android:layout_marginEnd="12dp" />
+
+                    <TextView
+                        android:layout_width="0dp"
+                        android:layout_height="wrap_content"
+                        android:layout_weight="1"
+                        android:text="DEVICE PHOTO"
+                        android:textColor="@color/white"
+                        android:textSize="14sp"
+                        android:textStyle="bold"
+                        android:letterSpacing="0.1" />
+
+                    <TextView
+                        android:layout_width="wrap_content"
+                        android:layout_height="wrap_content"
+                        android:text="Optional"
+                        android:textColor="#60FFFFFF"
+                        android:textSize="11sp" />
+                </LinearLayout>
+
+                <!-- Photo Preview Area -->
+                <FrameLayout
+                    android:layout_width="match_parent"
+                    android:layout_height="180dp"
+                    android:background="@drawable/bg_card_glass_island"
+                    android:layout_marginBottom="16dp">
+
+                    <!-- Actual photo (hidden until captured) -->
+                    <ImageView
+                        android:id="@+id/ivDevicePhoto"
+                        android:layout_width="match_parent"
+                        android:layout_height="match_parent"
+                        android:scaleType="centerCrop"
+                        android:contentDescription="Device photo" />
+
+                    <!-- Placeholder (shown before photo) -->
+                    <LinearLayout
+                        android:id="@+id/photoPlaceholder"
+                        android:layout_width="match_parent"
+                        android:layout_height="match_parent"
+                        android:orientation="vertical"
+                        android:gravity="center">
+
+                        <!-- Camera emoji-style icon wrapper -->
+                        <FrameLayout
+                            android:layout_width="60dp"
+                            android:layout_height="60dp"
+                            android:background="@drawable/bg_nav_circle_glass">
+                            <ImageView
+                                android:layout_width="28dp"
+                                android:layout_height="28dp"
+                                android:layout_gravity="center"
+                                android:src="@drawable/ic_search"
+                                app:tint="#60FFFFFF" />
+                        </FrameLayout>
+
+                        <TextView
+                            android:layout_width="wrap_content"
+                            android:layout_height="wrap_content"
+                            android:text="Tap below to capture"
+                            android:textColor="#60FFFFFF"
+                            android:textSize="13sp"
+                            android:layout_marginTop="10dp" />
+                    </LinearLayout>
+                </FrameLayout>
+
+                <!-- Camera / Gallery Row -->
+                <LinearLayout
+                    android:layout_width="match_parent"
+                    android:layout_height="wrap_content"
+                    android:orientation="horizontal">
+
+                    <TextView
+                        android:id="@+id/btnCamera"
+                        android:layout_width="0dp"
+                        android:layout_height="44dp"
+                        android:layout_weight="1"
+                        android:text="📷  TAKE PHOTO"
+                        android:textColor="@color/white"
+                        android:textSize="12sp"
+                        android:textStyle="bold"
+                        android:gravity="center"
+                        android:background="@drawable/bg_btn_orange"
+                        android:layout_marginEnd="8dp"
+                        android:letterSpacing="0.05" />
+
+                    <TextView
+                        android:id="@+id/btnGallery"
+                        android:layout_width="0dp"
+                        android:layout_height="44dp"
+                        android:layout_weight="1"
+                        android:text="🖼  GALLERY"
+                        android:textColor="@color/white"
+                        android:textSize="12sp"
+                        android:textStyle="bold"
+                        android:gravity="center"
+                        android:background="@drawable/bg_card_glass_island"
+                        android:letterSpacing="0.05" />
+
+                </LinearLayout>
+
+            </LinearLayout>
+
+            <!-- ══════════════════════════════════════ -->
+            <!-- SECTION 2: GPS LOCATION                -->
+            <!-- ══════════════════════════════════════ -->
+            <LinearLayout
+                android:id="@+id/sectionGps"
+                android:layout_width="match_parent"
+                android:layout_height="wrap_content"
+                android:orientation="vertical"
+                android:background="@drawable/bg_card_glass"
+                android:padding="20dp"
+                android:layout_marginHorizontal="16dp"
+                android:layout_marginBottom="16dp"
+                android:elevation="4dp"
+                android:alpha="0">
+
+                <!-- Section Label Row -->
+                <LinearLayout
+                    android:layout_width="match_parent"
+                    android:layout_height="wrap_content"
+                    android:orientation="horizontal"
+                    android:gravity="center_vertical"
+                    android:layout_marginBottom="16dp">
+
+                    <TextView
+                        android:layout_width="28dp"
+                        android:layout_height="28dp"
+                        android:text="2"
+                        android:textColor="@color/white"
+                        android:textSize="13sp"
+                        android:textStyle="bold"
+                        android:gravity="center"
+                        android:background="@drawable/bg_fab_circle_orange"
+                        android:layout_marginEnd="12dp" />
+
+                    <TextView
+                        android:layout_width="0dp"
+                        android:layout_height="wrap_content"
+                        android:layout_weight="1"
+                        android:text="PICKUP LOCATION"
+                        android:textColor="@color/white"
+                        android:textSize="14sp"
+                        android:textStyle="bold"
+                        android:letterSpacing="0.1" />
+
+                    <TextView
+                        android:layout_width="wrap_content"
+                        android:layout_height="wrap_content"
+                        android:text="GPS"
+                        android:textColor="#60FFFFFF"
+                        android:textSize="11sp" />
+                </LinearLayout>
+
+                <!-- GPS Status Card (inner) -->
+                <LinearLayout
+                    android:layout_width="match_parent"
+                    android:layout_height="wrap_content"
+                    android:orientation="vertical"
+                    android:background="@drawable/bg_card_glass_island"
+                    android:padding="16dp"
+                    android:layout_marginBottom="14dp">
+
+                    <TextView
+                        android:id="@+id/tvGpsStatus"
+                        android:layout_width="match_parent"
+                        android:layout_height="wrap_content"
+                        android:text="Location not captured yet"
+                        android:textColor="#80FFFFFF"
+                        android:textSize="13sp"
+                        android:layout_marginBottom="6dp" />
+
+                    <TextView
+                        android:id="@+id/tvGpsCoords"
+                        android:layout_width="match_parent"
+                        android:layout_height="wrap_content"
+                        android:text="—"
+                        android:textColor="@color/white"
+                        android:textSize="13sp"
+                        android:fontFamily="monospace"
+                        android:textStyle="bold" />
+                </LinearLayout>
+
+                <!-- GPS Button -->
+                <TextView
+                    android:id="@+id/btnCaptureLocation"
+                    android:layout_width="match_parent"
+                    android:layout_height="44dp"
+                    android:text="📍  CAPTURE CURRENT LOCATION"
+                    android:textColor="@color/white"
+                    android:textSize="12sp"
+                    android:textStyle="bold"
+                    android:gravity="center"
+                    android:background="@drawable/bg_btn_orange"
+                    android:letterSpacing="0.05" />
+
+            </LinearLayout>
+
+            <!-- ══════════════════════════════════════ -->
+            <!-- SECTION 3: REPAIR DETAILS FORM         -->
+            <!-- ══════════════════════════════════════ -->
+            <LinearLayout
+                android:id="@+id/sectionForm"
+                android:layout_width="match_parent"
+                android:layout_height="wrap_content"
+                android:orientation="vertical"
+                android:background="@drawable/bg_card_glass"
+                android:padding="20dp"
+                android:layout_marginHorizontal="16dp"
+                android:layout_marginBottom="24dp"
+                android:elevation="4dp"
+                android:alpha="0">
+
+                <!-- Section Label Row -->
+                <LinearLayout
+                    android:layout_width="match_parent"
+                    android:layout_height="wrap_content"
+                    android:orientation="horizontal"
+                    android:gravity="center_vertical"
+                    android:layout_marginBottom="20dp">
+
+                    <TextView
+                        android:layout_width="28dp"
+                        android:layout_height="28dp"
+                        android:text="3"
+                        android:textColor="@color/white"
+                        android:textSize="13sp"
+                        android:textStyle="bold"
+                        android:gravity="center"
+                        android:background="@drawable/bg_fab_circle_orange"
+                        android:layout_marginEnd="12dp" />
+
+                    <TextView
+                        android:layout_width="match_parent"
+                        android:layout_height="wrap_content"
+                        android:text="REPAIR DETAILS"
+                        android:textColor="@color/white"
+                        android:textSize="14sp"
+                        android:textStyle="bold"
+                        android:letterSpacing="0.1" />
+                </LinearLayout>
+
+                <!-- Customer Name -->
+                <TextView
+                    android:layout_width="wrap_content"
+                    android:layout_height="wrap_content"
+                    android:text="CUSTOMER NAME"
+                    android:textColor="#80FFFFFF"
+                    android:textSize="10sp"
+                    android:textStyle="bold"
+                    android:letterSpacing="0.15"
+                    android:layout_marginBottom="8dp" />
+
+                <LinearLayout
+                    android:layout_width="match_parent"
+                    android:layout_height="48dp"
+                    android:orientation="horizontal"
+                    android:gravity="center_vertical"
+                    android:background="@drawable/bg_input"
+                    android:paddingHorizontal="14dp"
+                    android:layout_marginBottom="16dp">
+                    <EditText
+                        android:id="@+id/etCustomerName"
+                        android:layout_width="match_parent"
+                        android:layout_height="match_parent"
+                        android:background="@null"
+                        android:textColor="@color/white"
+                        android:textColorHint="#50FFFFFF"
+                        android:hint="e.g. Ravi Sharma"
+                        android:textSize="14sp"
+                        android:inputType="textPersonName"
+                        android:maxLines="1" />
+                </LinearLayout>
+
+                <!-- Phone -->
+                <TextView
+                    android:layout_width="wrap_content"
+                    android:layout_height="wrap_content"
+                    android:text="PHONE NUMBER"
+                    android:textColor="#80FFFFFF"
+                    android:textSize="10sp"
+                    android:textStyle="bold"
+                    android:letterSpacing="0.15"
+                    android:layout_marginBottom="8dp" />
+
+                <LinearLayout
+                    android:layout_width="match_parent"
+                    android:layout_height="48dp"
+                    android:orientation="horizontal"
+                    android:gravity="center_vertical"
+                    android:background="@drawable/bg_input"
+                    android:paddingHorizontal="14dp"
+                    android:layout_marginBottom="16dp">
+                    <EditText
+                        android:id="@+id/etCustomerPhone"
+                        android:layout_width="match_parent"
+                        android:layout_height="match_parent"
+                        android:background="@null"
+                        android:textColor="@color/white"
+                        android:textColorHint="#50FFFFFF"
+                        android:hint="e.g. 9876543210"
+                        android:textSize="14sp"
+                        android:inputType="phone"
+                        android:maxLines="1" />
+                </LinearLayout>
+
+                <!-- Device Name -->
+                <TextView
+                    android:layout_width="wrap_content"
+                    android:layout_height="wrap_content"
+                    android:text="DEVICE NAME"
+                    android:textColor="#80FFFFFF"
+                    android:textSize="10sp"
+                    android:textStyle="bold"
+                    android:letterSpacing="0.15"
+                    android:layout_marginBottom="8dp" />
+
+                <LinearLayout
+                    android:layout_width="match_parent"
+                    android:layout_height="48dp"
+                    android:orientation="horizontal"
+                    android:gravity="center_vertical"
+                    android:background="@drawable/bg_input"
+                    android:paddingHorizontal="14dp"
+                    android:layout_marginBottom="16dp">
+                    <EditText
+                        android:id="@+id/etDeviceName"
+                        android:layout_width="match_parent"
+                        android:layout_height="match_parent"
+                        android:background="@null"
+                        android:textColor="@color/white"
+                        android:textColorHint="#50FFFFFF"
+                        android:hint="e.g. iPhone 14 Pro, Samsung S23"
+                        android:textSize="14sp"
+                        android:inputType="text"
+                        android:maxLines="1" />
+                </LinearLayout>
+
+                <!-- Issue Description -->
+                <TextView
+                    android:layout_width="wrap_content"
+                    android:layout_height="wrap_content"
+                    android:text="ISSUE DESCRIPTION"
+                    android:textColor="#80FFFFFF"
+                    android:textSize="10sp"
+                    android:textStyle="bold"
+                    android:letterSpacing="0.15"
+                    android:layout_marginBottom="8dp" />
+
+                <LinearLayout
+                    android:layout_width="match_parent"
+                    android:layout_height="100dp"
+                    android:orientation="horizontal"
+                    android:gravity="top"
+                    android:background="@drawable/bg_input"
+                    android:paddingHorizontal="14dp"
+                    android:paddingVertical="12dp">
+                    <EditText
+                        android:id="@+id/etIssue"
+                        android:layout_width="match_parent"
+                        android:layout_height="match_parent"
+                        android:background="@null"
+                        android:textColor="@color/white"
+                        android:textColorHint="#50FFFFFF"
+                        android:hint="Describe the problem..."
+                        android:textSize="14sp"
+                        android:inputType="textMultiLine"
+                        android:gravity="top"
+                        android:minLines="3" />
+                </LinearLayout>
+
+            </LinearLayout>
+
+            <!-- ══════════════════════════════════════ -->
+            <!-- SUBMIT BUTTON                          -->
+            <!-- ══════════════════════════════════════ -->
+            <LinearLayout
+                android:id="@+id/sectionSubmit"
+                android:layout_width="match_parent"
+                android:layout_height="wrap_content"
+                android:orientation="vertical"
+                android:paddingHorizontal="16dp"
+                android:alpha="0">
+
+                <TextView
+                    android:id="@+id/btnSubmit"
+                    android:layout_width="match_parent"
+                    android:layout_height="54dp"
+                    android:text="SUBMIT TICKET"
+                    android:textColor="@color/white"
+                    android:textSize="15sp"
+                    android:textStyle="bold"
+                    android:gravity="center"
+                    android:background="@drawable/bg_btn_orange"
+                    android:letterSpacing="0.1"
+                    android:elevation="6dp" />
+
+                <ProgressBar
+                    android:id="@+id/progressBar"
+                    android:layout_width="32dp"
+                    android:layout_height="32dp"
+                    android:layout_gravity="center_horizontal"
+                    android:layout_marginTop="12dp"
+                    android:visibility="gone"
+                    android:indeterminateTint="@color/primary_orange" />
+
+                <TextView
+                    android:layout_width="wrap_content"
+                    android:layout_height="wrap_content"
+                    android:layout_gravity="center_horizontal"
+                    android:layout_marginTop="12dp"
+                    android:text="Photo is uploaded to cloud automatically"
+                    android:textColor="#40FFFFFF"
+                    android:textSize="11sp" />
+
+            </LinearLayout>
+
+        </LinearLayout>
+    </androidx.core.widget.NestedScrollView>
+
+</androidx.constraintlayout.widget.ConstraintLayout>

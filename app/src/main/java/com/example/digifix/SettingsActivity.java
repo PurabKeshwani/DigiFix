@@ -11,6 +11,10 @@ import androidx.appcompat.app.AppCompatActivity;
 import com.google.firebase.auth.FirebaseAuth;
 import com.google.firebase.auth.FirebaseUser;
 
+import androidx.work.OneTimeWorkRequest;
+import androidx.work.WorkManager;
+import java.util.concurrent.TimeUnit;
+
 public class SettingsActivity extends AppCompatActivity {
 
     @Override
@@ -74,6 +78,19 @@ public class SettingsActivity extends AppCompatActivity {
             // 3. Close SettingsActivity
             finish();
         });
+
+        // Temporary Test Worker Button
+        View btnTestWorker = findViewById(R.id.btnTestWorker);
+        if (btnTestWorker != null) {
+            btnTestWorker.setOnClickListener(v -> {
+                OneTimeWorkRequest testRequest = new OneTimeWorkRequest.Builder(DailyBriefingWorker.class)
+                        .setInitialDelay(30, TimeUnit.SECONDS)
+                        .build();
+
+                WorkManager.getInstance(this).enqueue(testRequest);
+                Toast.makeText(this, "Daily Pulse scheduled! Wait 30 seconds...", Toast.LENGTH_LONG).show();
+            });
+        }
     }
 
     private void setupNavigation() {

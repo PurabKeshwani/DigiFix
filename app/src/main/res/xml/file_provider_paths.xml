@@ -1,0 +1,7 @@
+<?xml version="1.0" encoding="utf-8"?>
+<paths>
+    <!-- Camera captures go to app's external files dir (no READ_EXTERNAL_STORAGE needed) -->
+    <external-files-path
+        name="device_photos"
+        path="Pictures/" />
+</paths>

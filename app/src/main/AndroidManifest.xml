@@ -2,6 +2,28 @@
     xmlns:tools="http://schemas.android.com/tools"
     package="com.example.digifix">
 
+    <!-- Network -->
+    <uses-permission android:name="android.permission.INTERNET" />
+
+    <!-- Notifications (Android 13+ requires runtime permission) -->
+    <uses-permission android:name="android.permission.POST_NOTIFICATIONS" />
+
+    <!-- WorkManager: Reschedule jobs after device reboot -->
+    <uses-permission android:name="android.permission.RECEIVE_BOOT_COMPLETED" />
+
+    <!-- GPS Location -->
+    <uses-permission android:name="android.permission.ACCESS_FINE_LOCATION" />
+    <uses-permission android:name="android.permission.ACCESS_COARSE_LOCATION" />
+
+    <!-- Camera -->
+    <uses-permission android:name="android.permission.CAMERA" />
+    <uses-feature android:name="android.hardware.camera" android:required="false" />
+
+    <!-- Gallery / Media -->
+    <uses-permission android:name="android.permission.READ_MEDIA_IMAGES" />
+    <uses-permission android:name="android.permission.READ_EXTERNAL_STORAGE"
+        android:maxSdkVersion="32" />
+
     <application
         android:allowBackup="true"
         android:dataExtractionRules="@xml/data_extraction_rules"
@@ -38,6 +60,20 @@
             android:exported="false" />
 
         <activity android:name=".SignUpActivity" android:exported="false" />
+
+        <!-- Experiment 7: Add Repair Ticket (GPS + Camera) -->
+        <activity android:name=".AddRepairActivity" android:exported="false" />
+
+        <!-- FileProvider for camera captures -->
+        <provider
+            android:name="androidx.core.content.FileProvider"
+            android:authorities="com.example.digifix.fileprovider"
+            android:exported="false"
+            android:grantUriPermissions="true">
+            <meta-data
+                android:name="android.support.FILE_PROVIDER_PATHS"
+                android:resource="@xml/file_provider_paths" />
+        </provider>
 
     </application>
 
